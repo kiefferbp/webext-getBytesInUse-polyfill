@@ -1,0 +1,23 @@
+{
+  "name": "webext-getBytesInUse-polyfill",
+  "version": "1.0.0",
+  "description": "Polyfills getBytesInUse for Firefox WebExtensions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiefferbp/webext-getBytesInUse-polyfill.git"
+  },
+  "keywords": [
+    "setTimeout",
+    "promises"
+  ],
+  "author": "Brian Kieffer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kiefferbp/webext-getBytesInUse-polyfill/issues"
+  },
+  "homepage": "https://github.com/kiefferbp/webext-getBytesInUse-polyfill"
+}
