@@ -37,6 +37,10 @@
             return getSize(keys);
         }
 
+        if (typeof callback !== "function") {
+            throw new Error("callback is not a function");
+        }
+
         getSize(keys).then(callback).error(function (lastError) {
             if (Object.prototype.hasOwnProperty(chrome.runtime, "lastError")) { // does this browser support the lastError property?
                 chrome.runtime.lastError = lastError;
@@ -48,7 +52,7 @@
 
     chrome.storage.local.getBytesInUse = chrome.storage.local.getBytesInUse || function (keys, callback) {
         if (typeof callback !== "function") {
-            throw new TypeError("Malformed callback.");
+            throw new TypeError("callback is not a function");
         }
 
         browser.storage.local.getBytesInUse(keys, callback);
