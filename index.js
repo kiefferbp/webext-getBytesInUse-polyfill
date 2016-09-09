@@ -41,7 +41,7 @@
             throw new Error("callback is not a function");
         }
 
-        getSize(keys).then(callback).error(function (lastError) {
+        getSize(keys).then(callback).catch(function (lastError) {
             if (Object.prototype.hasOwnProperty(chrome.runtime, "lastError")) { // does this browser support the lastError property?
                 chrome.runtime.lastError = lastError;
             } else {

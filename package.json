@@ -1,6 +1,6 @@
 {
   "name": "webext-getBytesInUse-polyfill",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Polyfills getBytesInUse for Firefox WebExtensions",
   "main": "index.js",
   "scripts": {
