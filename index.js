@@ -22,7 +22,16 @@
         }
 
         return new Promise(function (resolve) {
-            browser.storage.local.get(keys).then(function (results) {
+            // note: in FF <= 47 browser.storage.local.get does not return a Promise object
+            // we use a callback instead for backwards compatibility
+            browser.storage.local.get(keys, function (results) {
+                var lastError = browser.runtime.lastError;
+
+                if (lastError) {
+                    reject(lastError);
+                    return;
+                }
+
                 keys.forEach(function (key) {
                     size += (key + JSON.stringify(results[key])).length;
                 });
@@ -43,7 +52,7 @@
 
         getSize(keys).then(callback).catch(function (lastError) {
             if (Object.prototype.hasOwnProperty(chrome.runtime, "lastError")) { // does this browser support the lastError property?
-                chrome.runtime.lastError = lastError;
+                browser.runtime.lastError = lastError;
             } else {
                 throw new Error(lastError);
             }
