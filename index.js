@@ -21,7 +21,7 @@
             keys = [keys]; // convert it into an array
         }
 
-        return new Promise(function (resolve) {
+        return new Promise(function (resolve, reject) {
             // note: in FF <= 47 browser.storage.local.get does not return a Promise object
             // we use a callback instead for backwards compatibility
             browser.storage.local.get(keys, function (results) {
