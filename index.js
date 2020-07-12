@@ -7,7 +7,7 @@
     "use strict";
 
     if (!Object.hasOwnProperty.call(window, "browser") || !Object.hasOwnProperty.call(window, "chrome")) {
-        throw new TypeError("Bad environment");
+        return;
     }
 
     if (!chrome.storage || !chrome.storage.local || !chrome.storage.local.get) {
