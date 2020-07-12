@@ -32,9 +32,13 @@
                     return;
                 }
 
-                keys.forEach(function (key) {
-                    size += (key + JSON.stringify(results[key])).length;
-                });
+                if (keys === null) {
+                    size += (JSON.stringify(results)).length;
+                } else {
+                    keys.forEach(function (key) {
+                        size += (key + JSON.stringify(results[key])).length;
+                    });
+                }
 
                 resolve(size);
             });
